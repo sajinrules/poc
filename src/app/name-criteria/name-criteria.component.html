@@ -1,0 +1,25 @@
+<div class="app-name-criteria">
+  <div class="container">
+    <div class="selector d-flex align-items-center justify-content-center py-2">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary">By Business</button>
+        <button type="button" class="btn btn-secondary">By Individual</button>
+        <button type="button" class="btn btn-secondary">By Filling number</button>
+      </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <fieldset>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Business Name*</label>
+          <div class="col-sm-10" formArrayName="business">
+            <div *ngFor="let item of formData.controls; let i = index;">
+                <input type="text" [formControlName]="i" class="form-control" id="staticEmail">
+            </div>
+            <button type="button" class="btn btn-primary" (click)="addNew()">Add a name to search</button>
+          </div>
+        </div>
+      </fieldset>
+      <button type="submit" class="btn btn-success" >Go!</button>
+    </form>
+  </div>
+</div>
